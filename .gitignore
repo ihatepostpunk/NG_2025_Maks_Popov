@@ -37,5 +37,11 @@
 *.out
 *.app
 
-# debug information files
+# de`bug information files
 *.dwo
+
+# Qt Creator user-specific files
+*.pro.user
+*.autosave
+*.qmlc
+*.jsc
