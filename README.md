@@ -1,0 +1,1 @@
+# NG_2025_Maks_Popov
