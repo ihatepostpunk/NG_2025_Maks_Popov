@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
+
+void showResult(float result) {
+    cout << "Result: " << result << endl;
+}
 
 int main() {
     float userNumber1 = 0;
@@ -21,29 +24,29 @@ int main() {
     cin >> operation;
 
     if (operation == '6') {
-        cout << "Result: " << sqrt(userNumber1) << endl;
+        showResult(sqrt(userNumber1));
     } else {
         cout << "Enter the second number: ";
         cin >> userNumber2;
 
         switch (operation) {
         case '1':
-            cout << "Result: " << userNumber1 + userNumber2 << endl;
+            showResult(userNumber1 + userNumber2);
             break;
         case '2':
-            cout << "Result: " << userNumber1 - userNumber2 << endl;
+            showResult(userNumber1 - userNumber2);
             break;
         case '3':
-            cout << "Result: " << userNumber1 * userNumber2 << endl;
+            showResult(userNumber1 * userNumber2);
             break;
         case '4':
             if (userNumber2 == 0)
                 cout << "Division by zero" << endl;
             else
-                cout << "Result: " << userNumber1 / userNumber2 << endl;
+                showResult(userNumber1 / userNumber2);
             break;
         case '5':
-            cout << "Result: " << pow(userNumber1, userNumber2) << endl;
+            showResult(pow(userNumber1, userNumber2));
             break;
         default:
             cout << "Unknown command" << endl;
