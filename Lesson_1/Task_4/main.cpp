@@ -8,9 +8,9 @@ int main()
     int userNumber = 0;
     cin >> userNumber;
 
-    for (int i = 0; i < userNumber; ++i)
+    for (int row = 0; row < userNumber; ++row)
     {
-        for (int b = 0; b < userNumber; ++b)
+        for (int col = 0; col < userNumber; ++col)
         {
             cout << "*";
         }
@@ -20,9 +20,9 @@ int main()
     cout << "Enter the number: " << endl;
     cin >> userNumber;
 
-    for (int i = 0; i < userNumber; ++i)
+    for (int row = 0; row < userNumber; ++row)
     {
-        for (int b = 0; b <= i; ++b)
+        for (int col = 0; col <= row; ++col)
         {
             cout << "*";
         }
