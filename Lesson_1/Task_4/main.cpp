@@ -2,29 +2,26 @@
 
 using namespace std;
 
-int main()
-{
-    cout << "Enter the number: " << endl;
-    int userNumber = 0;
+int main() {
+    int userNumber;
+    char choose;
+
+    cout << "Enter the number: ";
     cin >> userNumber;
 
-    for (int row = 0; row < userNumber; ++row)
-    {
-        for (int col = 0; col < userNumber; ++col)
-        {
-            cout << "*";
-        }
-        cout << endl;
-    }
+    cout << "Choose (s = square, t = triangle): ";
+    cin >> choose;
 
-    cout << "Enter the number: " << endl;
-    cin >> userNumber;
-
-    for (int row = 0; row < userNumber; ++row)
-    {
-        for (int col = 0; col <= row; ++col)
-        {
-            cout << "*";
+    for (int row = 0; row < userNumber; ++row) {
+        for (int col = 0; col < userNumber; ++col) {
+            if (choose == 's') {
+                cout << "*";
+            } else if (choose == 't') {
+                if (col <= row)
+                    cout << "*";
+                else
+                    cout << " ";
+            }
         }
         cout << endl;
     }
