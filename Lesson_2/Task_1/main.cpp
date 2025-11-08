@@ -5,89 +5,93 @@ using namespace std;
 int main()
 {
     int userBalance = 0;
-    int userBankAccount[] = {340, 243, 555, 2233, 0, 511, 25235, 51, 353, 23};
+    int userBankAccount[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     char operation;
     bool system = true;
 
-    cout << "\nWelcome to the bank!\n" << endl;
+    cout << endl << "Welcome to the bank!" << endl;
 
     while (system)
     {
-        cout << "\nWhat operation do you want to perform?" << endl;
-        cout << "1. Show your balance\n"
-                "2. Show your bank accounts\n"
-                "3. Withdraw all funds from bank accounts to balance\n"
-                "4. Exit\n";
+        cout << endl
+             << "What operation do you want to perform?" << endl
+             << "1. Show your balance" << endl
+             << "2. Show your bank accounts" << endl
+             << "3. Withdraw all funds from bank accounts to balance" << endl
+             << "4. Exit" << endl;
         cin >> operation;
 
         switch (operation)
         {
         case '1':
-        {
-            cout << "\nYour balance: \n" << userBalance << endl;
+            cout << endl << "Your balance: " << endl << userBalance << endl;
             break;
-        }
+
         case '2':
         {
             int size = sizeof(userBankAccount) / sizeof(userBankAccount[0]);
             for (int row = 0; row < size; ++row)
             {
-                cout << row + 1 << ": " << userBankAccount[row] << " " << endl;
+                cout << row + 1 << ": " << userBankAccount[row] << endl;
             }
 
-            cout << "\nSelect which account you want to use: \n";
+            cout << endl << "Select which account you want to use: " << endl;
             int userCount = 0;
             cin >> userCount;
 
-            cout << "\nWhat do you want to do with it?\n"
-                    "1. Top up\n"
-                    "2. Withdraw\n";
+            cout << endl << "What do you want to do with it?" << endl
+                 << "1. Top up" << endl
+                 << "2. Withdraw" << endl;
+
             char userCount1;
             cin >> userCount1;
 
             if (userCount1 == '1')
             {
                 int numberTopup = 0;
-                cout << "\nHow much would you like to top up this account with?  \n";
+                cout << endl << "How much would you like to top up this account with?" << endl;
                 cin >> numberTopup;
 
                 if (userBalance < numberTopup)
                 {
-                    cout << "\nNot enough money in your balance!\n" << endl;
+                    cout << endl << "Not enough money in your balance!" << endl;
                 }
                 else
                 {
                     userBalance -= numberTopup;
                     userBankAccount[userCount - 1] += numberTopup;
-                    cout << "\nNew account balance: \n" << userBankAccount[userCount - 1] << endl;
-                    cout << "\nYour balance: \n" << userBalance << endl;
+                    cout << endl << "New account balance: " << endl
+                         << userBankAccount[userCount - 1] << endl;
+                    cout << "Your balance: " << endl << userBalance << endl;
                 }
             }
             else if (userCount1 == '2')
             {
                 int withdrawAmount = 0;
-                cout << "\nHow much would you like to withdraw? \n";
+                cout << endl << "How much would you like to withdraw?" << endl;
                 cin >> withdrawAmount;
 
                 if (withdrawAmount > userBankAccount[userCount - 1])
                 {
-                    cout << "\nNot enough funds on the account!\n" << endl;
+                    cout << endl << "Not enough funds on the account!" << endl;
                 }
                 else
                 {
                     userBankAccount[userCount - 1] -= withdrawAmount;
                     userBalance += withdrawAmount;
-                    cout << "\nNew account balance: \n" << userBankAccount[userCount - 1] << endl;
-                    cout << "\nYour balance: \n" << userBalance << endl;
+                    cout << endl << "New account balance: " << endl
+                         << userBankAccount[userCount - 1] << endl;
+                    cout << "Your balance: " << endl << userBalance << endl;
                 }
             }
             else
             {
-                cout << "\nUnknown command!\n" << endl;
+                cout << endl << "Unknown command!" << endl;
             }
 
             break;
         }
+
         case '3':
         {
             int size = sizeof(userBankAccount) / sizeof(userBankAccount[0]);
@@ -101,16 +105,19 @@ int main()
 
             userBalance += totalAccounts;
 
-            cout << "\nYou have withdrawn all funds from all accounts.\n" << endl;
-            cout << "\nTotal transferred: \n" << totalAccounts << endl;
-            cout << "\nYour new balance: \n" << userBalance << endl;
+            cout << endl
+                 << "You have withdrawn all funds from all accounts." << endl
+                 << "Total transferred: " << totalAccounts << endl
+                 << "Your new balance: " << userBalance << endl;
             break;
         }
+
         case '4':
             system = false;
             break;
+
         default:
-            cout << "\nUnknown command!\n" << endl;
+            cout << endl << "Unknown command!" << endl;
             break;
         }
     }
