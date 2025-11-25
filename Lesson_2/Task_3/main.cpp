@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cctype>
 
 using namespace std;
 
@@ -12,10 +11,11 @@ int main() {
     for (int index = 0; text[index] != '\0'; index++) {
         char symbol = text[index];
 
-        if (isalpha(symbol)) {
-            char lower = tolower(symbol);
+        bool isLetter = (symbol >= 'A' && symbol <= 'Z') || (symbol >= 'a' && symbol <= 'z');
 
-            if (lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u') {
+        if (isLetter) {
+            if (symbol == 'A' || symbol == 'E' || symbol == 'I' || symbol == 'O' || symbol == 'U' ||
+                symbol == 'a' || symbol == 'e' || symbol == 'i' || symbol == 'o' || symbol == 'u') {
                 vowelsLetter++;
             } else {
                 nonvowelsLetter++;
